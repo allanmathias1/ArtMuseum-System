@@ -184,6 +184,37 @@ Senha: {len(password)*'*'}''')
                 break
         newUser = Common(name,login,password,False,school)
         saveCsv(Common.COMMON_FILEPATH,newUser)
+       
+   elif access == True:
+      while cadastro == True:
+        print('Insira o nome:')
+        name = input()
+        print('Insira o login desejado:')
+        login = input()
+        print('Insira a senha desejada:')
+        password = getpass.getpass()
+        print('Insira a função:')
+        role = input()
+        while True:
+          print(f'''Por favor confirme as informações:
+Nome:{name}
+Login: {login}
+Senha: {len(password)*'*'}
+Função: {role}
+
+Confirma as informações acima?
+1. Sim
+2. Não''')
+          opt = getMenuOption()
+          match opt:
+            case 1:
+              cadastro = False
+              break
+            case 2:
+              print('Reiniciando cadastro de usuário.\n\n\n\n')
+              break
+        newUser = Maintenance(name,login,password,True,role)
+        saveCsv(Maintenance.MAINT_FILEPATH,newUser)
 
 if __name__ == '__main__':
     object = Art('01','Noite','18/10/2000','Natureza','Impressionismo','A bela noite representada em pintura à óleo.','Pintura à óleo','Desconhecido','Sala 01, Estande 03')
