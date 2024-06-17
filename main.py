@@ -31,7 +31,7 @@ Escolha uma opção abaixo:
     opt = getMenuOption() 
     match opt:
       case 1:
-        createUser(False)
+        newUser(False)
       case 2:
         print('Login ainda não implementado.')
       case 3:

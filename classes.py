@@ -1,7 +1,7 @@
 import pandas as pd
 import os
-from main import *
 import getpass
+from main import getMenuOption
 
 class Visits:
    VISITAS_FILEPATH = './files/visits.csv'
@@ -139,7 +139,7 @@ def saveCsv(filepath, object):
         exit()
     print('As informações foram salvas com sucesso.')
 
-def createUser(access = bool):
+def newUser(access = bool):
    cadastro = True
    if access == False:
     while cadastro == True:
@@ -181,6 +181,7 @@ Senha: {len(password)*'*'}''')
                 break
               case 2:
                 print('Reiniciando cadastro de usuário.\n\n\n\n')
+                break
         newUser = Common(name,login,password,False,school)
         saveCsv(Common.COMMON_FILEPATH,newUser)
 
@@ -188,4 +189,3 @@ if __name__ == '__main__':
     object = Art('01','Noite','18/10/2000','Natureza','Impressionismo','A bela noite representada em pintura à óleo.','Pintura à óleo','Desconhecido','Sala 01, Estande 03')
     read = makeDict(object)
     print(read)
-    createUser(False)
